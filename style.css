@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.clock-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    text-align: center;
+    padding: 60px 40px;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.clock-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.digital-clock {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 0 0 30px rgba(0, 255, 136 , 0.6);
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+}
+
+.date-display {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-shadow: 2px 2px  3px rgba(0, 0, 0, 0.3);
+}
+
+.day-display {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgba( 0, 0, 0, 0.3);
+}
+
+.time-zone {
+    font-size: 1rem;
+    color: rgb(233, 233, 233);
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 768px) {
+    .clock-container{
+        padding: 40px 20px;
+        margin: 20px;
+        
+    }
+    .digital-clock{
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+    .clock-title{
+        font-size: 2rem;
+    }
+    .date-display{
+        font-size: 1.5rem;
+    }
+    .day-display{
+        font-size: 1.1rem;
+    }
+}
+
+@media(max-width: 480px) {
+    .digital-clock{
+        font-size: 2.5;
+        letter-spacing: 1px;
+    }
+    .clock-title{
+        font-size: 1.7rem;
+    }
+    .date-display{
+        font-size: 1.3rem;
+    }
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); } 
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 20px rgba( 0, 255, 136, 0.5); }
+    50% { text-shadow: 0 0 40px rgba(0, 255, 136, 0.8); }
+    100% { text-shadow: 0 0 20px rgba( 0, 255, 136, 0.5); }
+}
+
+.digital-clock {
+    animation: pulse 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+.clock-container{
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes blink{
+    0% , 50% { opacity: 1; }
+    51%, 100% { opacity: 0;}
+}
+
+.colon{
+    animation: blink 1s infinite;
+}
+
